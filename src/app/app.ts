@@ -5,7 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.dev/license
  */
-import {Component, signal} from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { RecipeModel } from './models';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,31 @@ import {Component, signal} from '@angular/core';
 })
 export class App {
   protected readonly title = signal('Smart Recipe Box');
+
+  protected readonly recipe = signal<RecipeModel>({
+    id: 1,
+    name: 'Spaghetti Carbonara',
+    description: 'A classic Italian pasta dish.',
+    ingredients: [
+      { name: 'Spaghetti', quantity: 200, unit: 'g' },
+      { name: 'Guanciale', quantity: 100, unit: 'g' },
+      { name: 'Egg Yolks', quantity: 4, unit: 'each' },
+      { name: 'Pecorino Romano Cheese', quantity: 50, unit: 'g' },
+      { name: 'Black Pepper', quantity: 1, unit: 'tsp' },
+    ],
+  });
   
-  protected log1(): void {
-    console.log('Load Spaghetti Carbonara');
-  } 
-  protected log2(): void {
-    console.log('Load Spaghetti Carbonara2');
+  protected loadRecipe(): void {
+    this.recipe.set({ 
+      id: 2,
+      name: 'Caprese Salad',
+      description: 'A simple and refreshing Italian salad.',
+      ingredients: [
+        { name: 'Tomatoes', quantity: 4, unit: 'each' },
+        { name: 'Fresh Mozzarella', quantity: 200, unit: 'g' },
+        { name: 'Fresh Basil', quantity: 1, unit: 'bunch' }, 
+        { name: 'Extra Virgin Olive Oil', quantity: 2, unit: 'tbsp' },
+      ],
+    });
   }
 }
