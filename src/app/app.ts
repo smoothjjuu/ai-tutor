@@ -29,6 +29,8 @@ export class App {
       { name: 'Black Pepper', quantity: 1, unit: 'tsp' },
     ],
   });
+
+  protected readonly servings = signal(0); 
   
   protected loadRecipe(): void {
     this.recipe.set({ 
@@ -42,5 +44,12 @@ export class App {
         { name: 'Extra Virgin Olive Oil', quantity: 2, unit: 'tbsp' },
       ],
     });
+  }
+
+  protected increaseServing(): void {
+    this.servings.update(currentVal => currentVal+1);
+  }
+  protected decreaseServing(): void {
+    this.servings.update(currentVal => currentVal-1);
   }
 }
