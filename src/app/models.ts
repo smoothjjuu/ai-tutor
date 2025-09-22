@@ -1,3 +1,4 @@
+
 export interface Ingredient {
   name: string;
   quantity: number;
@@ -8,6 +9,7 @@ export interface RecipeModel {
   id: number;
   name: string;
   description: string;
-  imgUrl: string; 
+  imgUrl: string;
+  isFavorite: boolean; // Add this line
   ingredients: Ingredient[];
 }

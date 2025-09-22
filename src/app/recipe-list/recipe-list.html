@@ -1,7 +1,13 @@
 <h2>Select a Recipe</h2>
-<button (click)="setRecipe(MOCK_RECIPES[0])">Spaghetti Carbonara</button>
-<button (click)="setRecipe(MOCK_RECIPES[1])">Caprese Salad</button>
-
+@for (recipe of MOCK_RECIPES; track recipe)
+{
+    <button (click)="setRecipe(recipe)">
+        {{recipe.name}}
+        @if(recipe.isFavorite){
+            ★
+        }
+    </button>
+}
 <hr />
 
 <!-- Pass the parent's signal to the child's input -->
