@@ -1,10 +1,8 @@
-<h1>{{ title() }}</h1>
-<p>{{ recipe().name }}</p>
-<img [src]="recipe().imgUrl" [alt]="`Recipe ${recipe().name} Image`">
-<button (click)="loadRecipe()">1st</button>
-<p>{{ servings() }}</p>
-<button (click)="increaseServing()">+</button>
-<button (click)="decreaseServing()">-</button>
-<pre>
-    {{ adjustedIngredients() | json  }}
-</pre>
+<h2>Select a Recipe</h2>
+<button (click)="setRecipe(MOCK_RECIPES[0])">Spaghetti Carbonara</button>
+<button (click)="setRecipe(MOCK_RECIPES[1])">Caprese Salad</button>
+
+<hr />
+
+<!-- Pass the parent's signal to the child's input -->
+<app-recipe-detail [recipe]="recipe()"></app-recipe-detail>
