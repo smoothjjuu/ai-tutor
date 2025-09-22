@@ -15,4 +15,11 @@ import {Component, signal} from '@angular/core';
 })
 export class App {
   protected readonly title = signal('Smart Recipe Box');
+  
+  protected log1(): void {
+    console.log('Load Spaghetti Carbonara');
+  } 
+  protected log2(): void {
+    console.log('Load Spaghetti Carbonara2');
+  }
 }
