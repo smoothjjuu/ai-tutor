@@ -3,14 +3,9 @@
 
 @for (recipe of filteredRecipes(); track recipe)
 {
-    <button (click)="setRecipe(recipe)">
-        {{recipe.name}}
+    <a [routerLink]="['/recipes', recipe.id]">{{ recipe.name }}
         @if(recipe.isFavorite){
             ★
         }
-    </button>
+    </a>
 }
-<hr />
-
-<!-- Pass the parent's signal to the child's input -->
-<app-recipe-detail [recipe]="recipe()"></app-recipe-detail>
