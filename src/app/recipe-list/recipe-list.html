@@ -1,5 +1,7 @@
 <h2>Select a Recipe</h2>
-@for (recipe of MOCK_RECIPES; track recipe)
+<input [(ngModel)]="searchTerm" placeholder="Search for a recipe" />
+
+@for (recipe of filteredRecipes(); track recipe)
 {
     <button (click)="setRecipe(recipe)">
         {{recipe.name}}
