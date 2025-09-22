@@ -5,12 +5,13 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.dev/license
  */
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RecipeModel } from './models';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [JsonPipe ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -32,6 +33,14 @@ export class App {
 
   protected readonly servings = signal(0); 
   
+  protected readonly adjustedIngredients  = computed(() => {
+    return this.recipe().ingredients.map(ingredient => {
+      return {
+        ...ingredient,
+        quantity: ingredient.quantity * this.servings(),
+      };
+    });
+  });
   protected loadRecipe(): void {
     this.recipe.set({ 
       id: 2,
