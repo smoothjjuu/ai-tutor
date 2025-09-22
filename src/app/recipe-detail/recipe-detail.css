@@ -1,0 +1,50 @@
+/* This is our main container. It adds the "card" look and feel. */
+.recipe-detail-card {
+  max-width: 600px;
+  margin: 20px auto; /* Auto margin on left/right centers the block */
+  padding: 24px; /* A generous amount of whitespace inside the card */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px; /* Softer, rounded corners */
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* A subtle shadow adds depth */
+}
+
+/* Establish visual hierarchy for the header text */
+.recipe-name {
+  font-size: 2rem; /* Much larger */
+  font-weight: 700; /* Bolder */
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.recipe-description {
+  font-size: 1rem;
+  color: #666666; /* Softer color for less emphasis */
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+/* --- Core Layout with Flexbox --- */
+.recipe-main-content {
+  display: flex; /* This is the key! It activates flexbox. */
+  gap: 24px; /* This creates a 24px space between the image and the ingredients */
+  align-items: flex-start; /* Aligns items to the top */
+}
+
+.recipe-image {
+  width: 250px; /* Give the image a fixed width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Slightly rounded corners on the image */
+}
+
+.recipe-ingredients {
+  flex: 1; /* This tells the ingredients block to take up the rest of the available space */
+}
+
+/* A little styling for the servings controls */
+.servings-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}

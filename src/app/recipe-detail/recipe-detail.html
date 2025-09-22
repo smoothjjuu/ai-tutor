@@ -1,14 +1,27 @@
 @if (recipe(); as currentRecipe) {
-  <h2>{{ currentRecipe.name }}</h2>
-  <p>{{ currentRecipe.description }}</p>
-  <img [src]="currentRecipe.imgUrl" [alt]="currentRecipe.name" />
+  <!-- 1. Add a host class for the main container -->
+  <div class="recipe-detail-card">
+    <!-- 2. Create a header section for the title -->
+    <div class="recipe-header">
+      <h2 class="recipe-name">{{ currentRecipe.name }}</h2>
+      <p class="recipe-description">{{ currentRecipe.description }}</p>
+    </div>
 
-  <div>
-    <h3>Servings: {{ servings() }}</h3>
-    <button (click)="increaseServing()">+</button>
-    <button (click)="decreaseServing()">-</button>
+    <!-- 3. Create a main content area for the side-by-side layout -->
+    <div class="recipe-main-content">
+      <img class="recipe-image" [src]="currentRecipe.imgUrl" [alt]="currentRecipe.name" />
+
+      <!-- 4. Create a container for the ingredients and servings -->
+      <div class="recipe-ingredients">
+        <div class="servings-control">
+          <h3>Servings: {{ servings() }}</h3>
+          <button (click)="increaseServing()">+</button>
+          <button (click)="decreaseServing()">-</button>
+        </div>
+
+        <h4>Ingredients</h4>
+        <pre>{{ adjustedIngredients() | json }}</pre>
+      </div>
+    </div>
   </div>
-
-  <h4>Ingredients</h4>
-  <pre>{{ adjustedIngredients() | json }}</pre>
 }
